@@ -5,6 +5,15 @@ using Labb2_library;
 
 
 
-Console.WriteLine(new Circle(new Vector2(3.0f, 4.0f), 2.0f));
-Console.WriteLine(new Rectangle(new Vector2(3.0f, 4.0f), 2.0f));
+
+float totalArea = 0;
+
+for (int i = 0; i < 20; i++)
+{
+    Shape shape = Shape.GenerateShape();
+    totalArea += shape.Area;
+    Console.WriteLine(Shape.GenerateShape());
+}
+Console.WriteLine();
+Console.WriteLine("Average area of all shapes are: " + (totalArea / 20));
 

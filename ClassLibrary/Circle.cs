@@ -27,9 +27,12 @@ public class Circle : Shape2D
     }
     public override string ToString()
     {
-        return $"Circle of the diensions: {_center} has a radius of: {_radius} a circumference of: {_circumference} an area of: {_area}";
+        return $"Circle:@({_center}) r = {_radius}";
     }
 
 }
+
+
+
 
 

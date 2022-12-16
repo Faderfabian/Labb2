@@ -1,8 +1,4 @@
 ﻿
-
-
-
-
 using System.Numerics;
 
 
@@ -14,7 +10,6 @@ public class Cuboid : Shape3D
     private float _volume;
     private float _area;
     private Vector3 _size;
-    private bool _isSquare;
 
 
     public override float Volume { get { return _volume; } }
@@ -27,41 +22,33 @@ public class Cuboid : Shape3D
 
 
         
-    public bool isCube
-
-    {
-        get
+     public bool IsCube
         {
-
-            if (_size.X == _size.Y == _size.Z)
-                return true;
-            else
-                return false;
+            get
+            {
+                return _size.X == _size.Y && _size.X == _size.Z;
+            }
         }
-        private set
-        {
-            isCube = value;
-        }
-    }
 
     public Cuboid(Vector3 center, Vector3 Size)
     {
-        _center = new Vector3(center, 0f);
+        _center = center;
         _size = Size;
-        _volume = 2 * (_size.X + _size.Y + _size.Z);
-        _area = _size.X * _size.Y;
+        _area = 2 * (_size.X + _size.Y + _size.Z);
+        _volume = _size.X * _size.Y + _size.X * _size.Z + _size.Y * _size.Z;
 
 
     }
 
-    public Cuboid(Vector3 center, float width)
+
+
+    public Cuboid(Vector3 center, float width) : this(center, new Vector3(width, width, width))
     {
-        _size = new Vector3(width);
-        _center = new Vector3(center, 0f);
+      
     }
+
     public override string ToString()
     {
-        return $"Rectangle @ {_center} has an area of: {_area} circumference of: {_volume}  {_size} is it a square? {_isSquare}";
+        return $"{(IsCube ? "Cube" : "Cuboid")} @ ({_center.X}, {_center.Y}, {_center.Z})  w = {_size.X}, h = {_size.Y}, l = {_size.Z}";
     }
 }
-

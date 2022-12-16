@@ -14,7 +14,6 @@ public class Rectangle : Shape2D
     private float _circumference;
     private float _area;
     private Vector2 _size;
-    private bool _isSquare;
 
 
     public override float Circumference { get { return _circumference; } }
@@ -26,8 +25,8 @@ public class Rectangle : Shape2D
     public Vector2 Size { get { return _size; } }
 
 
-    //if true annars false är det dags för här, sen overrida på något vänster?!
-    public bool isSquare 
+  
+    public bool IsSquare 
 
         {
         get
@@ -37,10 +36,6 @@ public class Rectangle : Shape2D
                 return true;
             else
                 return false;
-        }
-        private set
-        {
-            isSquare = value;
         }
     }
  
@@ -54,13 +49,12 @@ public class Rectangle : Shape2D
         
     }
 
-    public Rectangle (Vector2 center, float width)
+    public Rectangle (Vector2 center, float width): this(center, new Vector2(width, width))
     {
-        _size = new Vector2(width);
-        _center = new Vector3(center, 0f);
+
     }
     public override string ToString()
     {
-        return $"Rectangle @ {_center} has an area of: {_area} circumference of: {_circumference}  {_size} is it a square? {_isSquare}";
+        return $"{(IsSquare ? "Square" : "Rectangle")} @ {_center} has an area of: {_area} circumference of: {_circumference}";
     }
 }
