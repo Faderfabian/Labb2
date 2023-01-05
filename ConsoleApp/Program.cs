@@ -12,7 +12,7 @@ for (int i = 0; i < 20; i++)
 {
     Shape shape = Shape.GenerateShape();
     totalArea += shape.Area;
-    Console.WriteLine(Shape.GenerateShape());
+    Console.WriteLine(shape);
 }
 Console.WriteLine();
 Console.WriteLine("Average area of all shapes are: " + (totalArea / 20));

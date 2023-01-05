@@ -34,8 +34,8 @@ public class Cuboid : Shape3D
     {
         _center = center;
         _size = Size;
-        _area = 2 * (_size.X + _size.Y + _size.Z);
-        _volume = _size.X * _size.Y + _size.X * _size.Z + _size.Y * _size.Z;
+        _area = 2 * (_size.X * _size.Y + _size.Z * _size.X + _size.Y * _size.Z);
+        _volume = _size.X * _size.Y * _size.Z;
 
 
     }
